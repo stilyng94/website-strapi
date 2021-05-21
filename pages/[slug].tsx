@@ -3,11 +3,18 @@ import Layout from "../components/Layout"
 import withClient from "../helpers/build_client"
 import Link from "next/link"
 import { Image } from "@chakra-ui/react"
+import { useRouter } from 'next/router'
 
 
 
-const Blog = ({ blog }: any) => (
-    <Layout title="Blog | SAYeTECH">
+const Blog = ({ blog }: any) => {
+    const router = useRouter()
+
+    if (router.isFallback) {
+        return <div>Loading...</div>
+    }
+
+    return (<Layout title="Blog | SAYeTECH">
         <h1>Hello SAYeTECH 🔥 🔥 </h1>
         <section>
             <Link href="/">
@@ -21,9 +28,10 @@ const Blog = ({ blog }: any) => (
                 <p>{blog.content}</p>
             </div>
         </section>
-    </Layout>
+    </Layout>)
+}
 
-)
+
 
 //Total available Pages
 export const getStaticPaths: GetStaticPaths = async (ctx: any) => {
