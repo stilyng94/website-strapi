@@ -5,8 +5,7 @@
     "dev": "rm -rf .next/ && next dev",
     "dev-debug": "NODE_OPTIONS='--inspect' yarn dev",
     "build": "rm -rf .next/ && next build",
-    "start": "rm -rf .next/ && next start",
-    "export": "build && next export",
+    "start": "next start",
     "type-check": "tsc"
   },
   "dependencies": {

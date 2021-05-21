@@ -6,10 +6,10 @@ const buildClient = ({ req }: any): AxiosInstance => {
     //! http://SERVICENAME.NAMESPACE.svc.cluster.local
 
     return axios.create({
-      baseURL: "http://localhost:1337",
-      // headers: {
-      ...req?.headers,
-      // },
+      baseURL: `${process.env.NEXT_PUBLIC_BACKEND_URL}`,
+      headers: {
+        ...req?.headers,
+      },
     });
   } else {
     //!We on client side
