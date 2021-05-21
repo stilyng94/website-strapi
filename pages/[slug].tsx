@@ -24,7 +24,7 @@ const Blog = ({ blog }: any) => {
             </Link>
             <div key={blog.id}>
                 <h2>{blog.title}</h2>
-                <Image src={blog.image_url} alt={blog.title} />
+                <Image src={blog.image_url.url} alt={blog.title} />
                 <p>{blog.content}</p>
             </div>
         </section>
